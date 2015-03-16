@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lesson5Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7P-34-cbY">
+                                <rect key="frame" x="279" y="111" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd5-eh-lnG">
+                                <rect key="frame" x="225" y="220" width="151" height="30"/>
+                                <state key="normal" title="Increase cookie count">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="increaseCookieCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SRR-02-qUV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv9-Tz-wZ7">
+                                <rect key="frame" x="261" y="338" width="78" height="30"/>
+                                <state key="normal" title="Add cookie">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCookie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X02-7X-sFA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k7P-34-cbY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="91" id="7Ct-8L-1W5"/>
+                            <constraint firstAttribute="centerX" secondItem="dv9-Tz-wZ7" secondAttribute="centerX" id="B21-ei-VJX"/>
+                            <constraint firstAttribute="centerX" secondItem="Xd5-eh-lnG" secondAttribute="centerX" id="Oq2-WB-Oh7"/>
+                            <constraint firstItem="dv9-Tz-wZ7" firstAttribute="top" secondItem="Xd5-eh-lnG" secondAttribute="bottom" constant="88" id="YDp-4J-nlj"/>
+                            <constraint firstItem="Xd5-eh-lnG" firstAttribute="top" secondItem="k7P-34-cbY" secondAttribute="bottom" constant="88" id="g6a-Uz-KJn"/>
+                            <constraint firstAttribute="centerX" secondItem="k7P-34-cbY" secondAttribute="centerX" id="z9p-XJ-XeR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cookieCountLabel" destination="k7P-34-cbY" id="Vu2-j3-qbd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

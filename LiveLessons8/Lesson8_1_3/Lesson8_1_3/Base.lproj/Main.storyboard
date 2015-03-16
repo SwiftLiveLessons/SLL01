@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lesson8_1_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FI-at-skH">
+                                <rect key="frame" x="235" y="49" width="131" height="30"/>
+                                <state key="normal" title="Synchronous tasks">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="synchronousOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdS-M1-lZX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxT-Um-EE1">
+                                <rect key="frame" x="179" y="127" width="242" height="30"/>
+                                <state key="normal" title="Synchronous tasks inside async op">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="synchronousTasksInsideAsyncOp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="01R-0M-eBx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMM-9e-aXT">
+                                <rect key="frame" x="180" y="285" width="241" height="30"/>
+                                <state key="normal" title="Async operations with dependency">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="asyncWithNestedOp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V6t-kk-jyJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44X-t9-Ldr">
+                                <rect key="frame" x="241" y="204" width="119" height="30"/>
+                                <state key="normal" title="Async operations">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="asynchronousOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2we-yM-e5b"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sMM-9e-aXT" firstAttribute="top" secondItem="44X-t9-Ldr" secondAttribute="bottom" constant="51" id="7GL-Zu-tEl"/>
+                            <constraint firstItem="44X-t9-Ldr" firstAttribute="top" secondItem="LxT-Um-EE1" secondAttribute="bottom" constant="47" id="CwR-ge-XNG"/>
+                            <constraint firstAttribute="centerX" secondItem="sMM-9e-aXT" secondAttribute="centerX" id="Se8-Z7-GfL"/>
+                            <constraint firstAttribute="centerX" secondItem="9FI-at-skH" secondAttribute="centerX" id="ZKp-VN-5OP"/>
+                            <constraint firstAttribute="centerX" secondItem="LxT-Um-EE1" secondAttribute="centerX" id="bNj-4h-ovD"/>
+                            <constraint firstItem="9FI-at-skH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="e8Z-7U-teQ"/>
+                            <constraint firstAttribute="centerX" secondItem="44X-t9-Ldr" secondAttribute="centerX" id="f4a-em-Zsr"/>
+                            <constraint firstItem="LxT-Um-EE1" firstAttribute="top" secondItem="9FI-at-skH" secondAttribute="bottom" constant="48" id="ve6-dj-KFp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

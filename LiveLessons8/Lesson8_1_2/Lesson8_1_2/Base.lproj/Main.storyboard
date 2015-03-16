@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lesson8_1_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xb-DI-Qvs">
+                                <rect key="frame" x="220" y="64" width="160" height="30"/>
+                                <state key="normal" title="Synchronous operation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="synchronousOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fkw-lu-p9i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwc-kE-K7e">
+                                <rect key="frame" x="217" y="247" width="167" height="30"/>
+                                <state key="normal" title="Asynchronous operation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="asynchronousOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="stT-ST-oQ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKh-mh-vAs">
+                                <rect key="frame" x="215" y="349" width="170" height="30"/>
+                                <state key="normal" title="Async with nested async">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="asyncWithNestedOp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNp-lJ-FaN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SD-iw-jqW">
+                                <rect key="frame" x="179" y="153" width="242" height="30"/>
+                                <state key="normal" title="Synchronous tasks inside async op">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="synchronousTasksInsideAsyncOp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wgj-z6-4hN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3SD-iw-jqW" firstAttribute="top" secondItem="5xb-DI-Qvs" secondAttribute="bottom" constant="59" id="2QK-sL-uDu"/>
+                            <constraint firstItem="5xb-DI-Qvs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="9pl-zL-EnA"/>
+                            <constraint firstAttribute="centerX" secondItem="3SD-iw-jqW" secondAttribute="centerX" id="KDI-mW-v68"/>
+                            <constraint firstAttribute="centerX" secondItem="Pwc-kE-K7e" secondAttribute="centerX" id="NUK-j1-QBU"/>
+                            <constraint firstAttribute="centerX" secondItem="5xb-DI-Qvs" secondAttribute="centerX" id="Saj-7J-maD"/>
+                            <constraint firstAttribute="centerX" secondItem="YKh-mh-vAs" secondAttribute="centerX" id="TuI-Jr-6Ev"/>
+                            <constraint firstItem="YKh-mh-vAs" firstAttribute="top" secondItem="Pwc-kE-K7e" secondAttribute="bottom" constant="72" id="nM9-bo-2yx"/>
+                            <constraint firstItem="Pwc-kE-K7e" firstAttribute="top" secondItem="3SD-iw-jqW" secondAttribute="bottom" constant="64" id="qUc-Kg-kEP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

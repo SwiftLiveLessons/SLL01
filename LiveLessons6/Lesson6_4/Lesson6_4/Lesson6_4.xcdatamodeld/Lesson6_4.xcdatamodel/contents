@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7527" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Dealership" representedClassName="Lesson6_4.Dealership" syncable="YES">
+        <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lotID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfCars" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="salesStaff" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SalesPerson" inverseName="employer" inverseEntity="SalesPerson" syncable="YES"/>
+    </entity>
+    <entity name="SalesPerson" representedClassName="Lesson6_4.SalesPerson" syncable="YES">
+        <attribute name="employeeID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dealership" inverseName="salesStaff" inverseEntity="Dealership" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Dealership" positionX="-20" positionY="0" width="128" height="118"/>
+        <element name="SalesPerson" positionX="277" positionY="-3" width="128" height="88"/>
+    </elements>
+</model>
