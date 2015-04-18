@@ -2,7 +2,7 @@
 This repository contains the code samples from the iOS/Swift by Example Live Lessons, by [BJ Miller](http://bjmiller.me). The example code will be updated as changes to Swift occur, and accessible via git tags if you are not running the most current version of Swift/Xcode.
 
 #### Links to blog posts for updates
-None yet.  
+* [Updates in Swift 1.2](http://bjmiller.me/post/116692952237/updates-in-swift-1-2)
 
 #### Version history
 * **1.0.0**  
