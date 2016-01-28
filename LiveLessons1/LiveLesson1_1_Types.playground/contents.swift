@@ -31,10 +31,10 @@ let inferredPi = 3.14
 // Any and AnyObject
 let anyString: Any = "5"
 let fiveString = "5"
-fiveString.toInt()!
-//anyString.toInt()
+Int(fiveString)
+Int(anyString as! String)
 
 let anyObjectHello: AnyObject = "HELLO"
 
-"42".toInt()
+Int("42")
 
