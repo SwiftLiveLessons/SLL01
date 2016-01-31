@@ -5,22 +5,24 @@ import UIKit
 var a = 10
 
 while a > 0 {
-    println("a is \(a)")
+    print("a is \(a)")
     --a
 }
-println()
-do {
-    println("a is \(a)")
+print("")
+
+//: From Swift 2 __do__ has a new meaning ([documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Statements.html#//apple_ref/doc/uid/TP40014097-CH33-ID533))
+repeat {
+    print("a is \(a)")
     ++a
 } while a < 10
 
-println()
+print("")
 
 
 for var i = 0; i < 5; ++i {
-    println("i is \(i)")
+    print("i is \(i)")
 }
-println()
+print("")
 for j in 1...5 {
-    println("j is \(j)")
+    print("j is \(j)")
 }
