@@ -5,7 +5,7 @@ import UIKit
 func addNumbers(num1: Int, num2: Int) -> Int {
     return num1 + num2
 }
-addNumbers(2, 3)
+addNumbers(2, num2: 3)
 
 func addVariadicParameters(numbers: Int...) -> Int {
     var result = 0
@@ -29,13 +29,13 @@ func multiply(thisNumber num1: Double, byThisNumber num2: Double) -> Double {
 }
 multiply(thisNumber: 3.5, byThisNumber: 2.1)
 
-func multiply2(#thisNumber: Double, #byThisNumber: Double) -> Double {
+func multiply2(thisNumber thisNumber: Double, byThisNumber: Double) -> Double {
     return thisNumber * byThisNumber
 }
 multiply2(thisNumber: 4.0, byThisNumber: 2.5)
 
 // default parameters
-func greetAFamousPerson(#firstName: String, #lastName: String, salutation: String = "Mrs.") -> String {
+func greetAFamousPerson(firstName firstName: String, lastName: String, salutation: String = "Mrs.") -> String {
     return "Hello, \(salutation) \(firstName) \(lastName)"
 }
 let JFK = greetAFamousPerson(firstName: "John", lastName: "Kennedy", salutation: "Mr.")
