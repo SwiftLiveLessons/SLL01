@@ -8,7 +8,7 @@ func speedUp(speed: Int) -> Int {
 func slowDown(speed: Int) -> Int {
     return speed - 1
 }
-func changeSpeed(speed: Int) -> Int -> Int {
+func changeSpeed(speed: Int) -> ( (Int) -> Int ) {
     return speed > 65 ? slowDown : speedUp
 }
 
