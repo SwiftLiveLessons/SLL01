@@ -45,33 +45,15 @@ subtractClosure(5, 6)
 
 
 // map
-var triples = numbers.map { (item: Int) -> Int in
-    item * 3
-}
-triples
-
-triples = numbers.map { $0 * 3 }
+let triples = numbers.map( {(item: Int) -> Int in item * 3 } )
 triples
 
 // filter
-var evens =  numbers.filter { (item: Int) -> Bool in
-    item % 2 == 0
-}
-evens
-
-evens =  numbers.filter { $0 % 2 == 0 }
+let evens =  numbers.filter( {(item: Int) -> Bool in item % 2 == 0 } )
 evens
 
 // reduce
-var product = numbers.reduce(1) { (item1: Int, item2: Int) -> Int in
-    item1 * item2
-}
-product
-
-product = numbers.reduce(1, combine:{ (item1: Int, item2: Int) -> Int in
+let product = numbers.reduce(1, combine:{ (item1: Int, item2: Int) -> Int in
     item1 * item2
 })
-product
-
-product = numbers.reduce(1, combine:{ $0 * $1 })
 product
