@@ -23,11 +23,11 @@ func fakeNetworkCall() -> Result {
 let networkResult = fakeNetworkCall()
 switch networkResult {
 case .Success(let json):
-    println("json is \(json)")
+    print("json is \(json)")
 case .Error(_, let errorCode) where errorCode == 400:
-    println("Code: \(errorCode)")
+    print("Code: \(errorCode)")
 case .Error(let errorString, let errorCode) where errorCode == 418:
-    println("I'm a little teapot, \(errorString). http://tools.ietf.org/html/rfc2324.")
+    print("I'm a little teapot, \(errorString). http://tools.ietf.org/html/rfc2324.")
 default:
-    println("Unknown error")
+    print("Unknown error")
 }
