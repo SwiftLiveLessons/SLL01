@@ -23,7 +23,7 @@ let odds = numbers.filter(isOdd)
 func add(n1: Int, n2: Int) -> Int {
     return n1 + n2
 }
-let sum = numbers.reduce(0, combine: add)  // reduce(numbers, 0, add)
+let sum = numbers.reduce(0, combine: add)
 
 // nested functions
 func globalFunc(value: String) {
