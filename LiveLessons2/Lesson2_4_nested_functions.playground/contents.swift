@@ -24,7 +24,7 @@ func combineNumbers2(numbers: Int...) -> Int {
     
     func _add(num1: Int, toNum num2: Int) -> Int {
         
-        func nestedAdd() -> Int {
+        func nestedAdd() -> Int {            
             return num1 + num2
         }
         
