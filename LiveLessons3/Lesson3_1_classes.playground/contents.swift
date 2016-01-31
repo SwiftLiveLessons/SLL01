@@ -13,34 +13,34 @@ let a = SomeClass()
 a.name = "John"
 
 let b = a
-println(a.name)
-println(b.name)
+print(a.name)
+print(b.name)
 
 b.name = "Alice"
-println(a.name)
-println(b.name)
+print(a.name)
+print(b.name)
 
 let c = SomeClass()
 
-println()
+print("")
 
 let anyString: AnyObject = "hello"
 if let uString = anyString as? String {
-    println("\(uString)")
+    print("\(uString)")
 }
 
-println()
+print("")
 
 let dict: [String : AnyObject] = ["age": 0]
 if let age = dict["age"] as? Bool {
-    println("age is \(age)")
+    print("age is \(age)")
 }
 
 class Downcasting {
     var view = UIView()
     func forceIt() {
         (view as! UILabel).text = "My text has been set if I am a UILabel"
-        println("\((view as! UILabel).text)")
+        print("\((view as! UILabel).text)")
     }
 }
 let downcasting = Downcasting()
@@ -53,5 +53,5 @@ let upcastedStringToAnyObject: AnyObject = anyString as AnyObject
 let someString: String = "hi"
 let anyObjectString: AnyObject = someString
 if anyString is String {
-    println("anyString is a String")
+    print("anyString is a String")
 }
