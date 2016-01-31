@@ -4,7 +4,7 @@ import UIKit
 
 var a = 5
 
-//: [This notation will be removed in Swift 3)](https://github.com/apple/swift-evolution/blob/master/proposals/0004-remove-pre-post-inc-decrement.md)
+//: [This notation will be removed in Swift 3](https://github.com/apple/swift-evolution/blob/master/proposals/0004-remove-pre-post-inc-decrement.md)
 ++a 
 a++
 a
