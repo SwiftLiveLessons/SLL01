@@ -51,9 +51,9 @@ mostRecentCat.rawValue
 myColor = .Orange
 switch myColor {
 case .Blue, .Green:
-    println("Blue or green is my favorite color")
+    print("Blue or green is my favorite color")
 case .Red:
-    println("Red kitchens make me hungry")
+    print("Red kitchens make me hungry")
 default:
-    println("I don't like whatever color this is")
+    print("I don't like whatever color this is")
 }
