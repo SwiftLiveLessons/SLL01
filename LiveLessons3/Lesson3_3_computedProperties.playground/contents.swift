@@ -25,7 +25,7 @@ square.area = 49
 var questionsAnswered = [true, true, false, true]
 var examComplete: Bool {
 get {
-    return !contains(questionsAnswered) { $0 == false }
+    return !questionsAnswered.contains { $0 == false }
 }
 set {
     questionsAnswered = [Bool](count: questionsAnswered.count, repeatedValue: true)

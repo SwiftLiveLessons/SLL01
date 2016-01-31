@@ -7,11 +7,11 @@ class Thermometer {
     
     var temperature: Int = 0 {
         willSet {
-            println("in temperature's willSet method, newValue is \(newValue)")
+            print("in temperature's willSet method, newValue is \(newValue)")
             // perform an animation effect on thermometer UI to newValue
         }
         didSet {
-            println("in temperature's didSet method, oldValue is \(oldValue)")
+            print("in temperature's didSet method, oldValue is \(oldValue)")
             // perform a quick scaling animation to indicate animation is complete
         }
     }
