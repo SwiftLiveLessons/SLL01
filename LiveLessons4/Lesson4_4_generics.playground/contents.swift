@@ -14,29 +14,30 @@ import UIKit
 //    return s1 == s2
 //}
 //
-//isEqual(5, 5)
-//isEqual(3.14, 3.15)
-//isEqual("Hi", "Hello")
+//isEqual(5, n2: 5)
+//isEqual(3.14, n2: 3.15)
+//isEqual("Hi", s2: "Hello")
 
 
 func isEqual<T: Equatable>(value1: T, value2: T) -> Bool {
     return value1 == value2
 }
-isEqual(5, 5)
-isEqual(3.14, 3.15)
-isEqual("Hi", "Hello")
+isEqual(5, value2: 5)
+isEqual(3.14, value2: 3.15)
+isEqual("Hi", value2: "Hello")
 
 
 // generic functions
-func fmap<T, U>(value: T?, f: T -> U) -> U? {
+func fmap<T, U>(value: T?, f: T -> U) -> U? { // fmap<T: CollectionType, ...
     switch value {
     case .Some(let x): return f(x)
     case .None: return .None
     }
 }
 var greeting: String? = "Bonjour!"
-let charCount = fmap(greeting) { count($0) }
-charCount
+
+//let charCount = fmap(greeting) { count($0) } // Xcode bug...
+//charCount
 
 
 // associated types
