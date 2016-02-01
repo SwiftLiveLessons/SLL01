@@ -4,7 +4,7 @@ import UIKit
 
 // no return type
 func printName(name: String) {
-    println("Hello, \(name)")
+    print("Hello, \(name)")
 }
 printName("Jeeves")
 
@@ -39,12 +39,12 @@ func parse(data: String, inout error: NSError?) {
     // something bad happens
     error = NSError(domain: "Some domain", code: 400, userInfo: [NSLocalizedDescriptionKey : "Something very bad happened!"])
 }
-parse("fake json", &error)
+parse("fake json", error: &error)
 error?.localizedDescription
 
 // optional parameters
 func stringToInt(numAsString: String) -> Int? {
-    return numAsString.toInt()
+    return Int(numAsString)
 }
 stringToInt("42")
 stringToInt("five")

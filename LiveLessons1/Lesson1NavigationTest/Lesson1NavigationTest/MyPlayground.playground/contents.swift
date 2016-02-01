@@ -3,8 +3,8 @@
 import UIKit
 
 var str = "Hello, playground"
-println("hello")
+print("hello")
 
 for number in 1...10 {
-    println("I am at number \(number)")
+    print("I am at number \(number)")
 }

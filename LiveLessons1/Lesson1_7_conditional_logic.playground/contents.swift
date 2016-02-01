@@ -6,22 +6,22 @@ let a = 1
 let b = 2
 
 if a == b {
-    println("a is equal to b")
+    print("a is equal to b")
 } else {
-    println("a is NOT equal to b")
+    print("a is NOT equal to b")
 }
 
 let name = "Saul"
 
 switch name {
     case "Sarah":
-    println("matched Sarah")
+    print("matched Sarah")
     case "Molly":
-    println("matched Molly")
+    print("matched Molly")
     case "John":
-    println("matched John")
+    print("matched John")
 default:
-    println("no match")
+    print("no match")
 }
 
 let madeSale = true

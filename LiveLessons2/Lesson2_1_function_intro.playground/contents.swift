@@ -3,11 +3,18 @@
 import UIKit
 
 func printHello() {
-    println("hello")
+    print("hello")
 }
 printHello()
 
-func addNumbers(num1: Int, num2: Int) -> Int {
+func addNumbers(num1: Int, _ num2: Int) -> Int {
     return num1 + num2
 }
+
 addNumbers(5, 42)
+
+func addNumbersNum1(num1: Int, num2: Int) -> Int {
+    return num1 + num2
+}
+
+addNumbersNum1(5, num2: 42)

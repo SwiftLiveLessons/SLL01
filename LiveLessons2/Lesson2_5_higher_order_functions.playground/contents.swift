@@ -8,7 +8,7 @@ func speedUp(speed: Int) -> Int {
 func slowDown(speed: Int) -> Int {
     return speed - 1
 }
-func changeSpeed(speed: Int) -> Int -> Int {
+func changeSpeed(speed: Int) -> ( (Int) -> Int ) {
     return speed > 65 ? slowDown : speedUp
 }
 
@@ -16,6 +16,6 @@ var currentSpeed = 55
 while currentSpeed != 65 {
     let speedFunc = changeSpeed(currentSpeed)
     currentSpeed = speedFunc(currentSpeed)
-    println("speed is now \(currentSpeed)")
+    print("speed is now \(currentSpeed)")
 }
-println("speed is now \(currentSpeed)")
+print("speed is now \(currentSpeed)")

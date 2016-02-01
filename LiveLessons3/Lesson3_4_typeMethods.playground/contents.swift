@@ -6,7 +6,7 @@ func returnMyNameWithFirstAndLast(first: String, last: String) -> String {
     return first + " " + last
 }
 
-returnMyNameWithFirstAndLast("BJ", "Miller")
+returnMyNameWithFirstAndLast("BJ", last: "Miller")
 
 class Name {
     func returnMyNameWithFirst(first: String, last: String) -> String {
