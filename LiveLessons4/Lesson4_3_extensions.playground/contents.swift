@@ -10,8 +10,8 @@ extension Int {
     }
 }
 let five = 5
-five.doIt() { println("I am here!") }
-3.doIt() { println("I am printing again") }
+five.doIt() { print("I am here!") }
+3.doIt() { print("I am printing again") }
 
 
 struct URL {
@@ -43,7 +43,7 @@ extension UIColor {
 UIColor.myFavoriteBlueColor()
 UIColor.colorWithRGBHex(0xff4444)
 
-extension URL: Printable {
+extension URL: CustomStringConvertible {
     var description: String {
         return "The URL is \(urlString)"
     }
