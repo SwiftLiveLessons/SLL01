@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         let multiplier = Int(arc4random_uniform(5))
         let cookie = Cookie(cookieValue: 1, multiplier: multiplier)
         
-        println("adding cookie with \(cookie.cookieIntegerValue()) cookie value")
+        print("adding cookie with \(cookie.cookieIntegerValue()) cookie value")
         
         countableCookies.append(cookie)
     }
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     private func resetMultipliersIfNeeded() {
         if tapCount == 10 {
             countableCookies.map { $0.multiplier = nil }
-            countableCookies.map { println("multiplier: \($0.multiplier)") }
+            countableCookies.map { print("multiplier: \($0.multiplier)") }
             tapCount = 0
         } else {
             ++tapCount
