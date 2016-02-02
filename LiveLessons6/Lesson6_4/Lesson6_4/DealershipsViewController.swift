@@ -13,7 +13,11 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
 
     var managedObjectContext: NSManagedObjectContext? {
         didSet {
-            self.fetchedResultsController.performFetch(nil)
+            do {
+                try self.fetchedResultsController.performFetch()
+            } catch {
+							print("error performing fetch: \(error)")
+            }
             self.tableView?.reloadData()
         }
     }
@@ -40,7 +44,7 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        createSomeEntities()
+        createSomeEntities()
     }
     
     func createSomeEntities() {
@@ -57,7 +61,11 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
             person2.employer = dealership2
             person4.employer = dealership1
             
-            moc.save(nil)
+            do {
+                try moc.save()
+            } catch {
+							print("error saving context: \(error)")
+            }
         }
     }
 
@@ -77,7 +85,7 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("DealershipCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("DealershipCell", forIndexPath: indexPath) 
         
         if fetchedResultsController.fetchedObjects?.isEmpty ?? true == false {
             let dealership = fetchedResultsController.objectAtIndexPath(indexPath) as! Dealership
@@ -93,9 +101,8 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         tableView.beginUpdates()
     }
-    
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        
+	
+	func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath ?? NSIndexPath()], withRowAnimation: .Automatic)

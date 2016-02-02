@@ -51,7 +51,7 @@ class DetailViewController: UIViewController {
     }
 
     func valueChanged(notification: NSNotification) {
-        println("notification: \(notification)")
+        print("notification: \(notification)")
         if let stringValue = notification.object as? String {
             detailDescriptionLabel.text = stringValue
         }

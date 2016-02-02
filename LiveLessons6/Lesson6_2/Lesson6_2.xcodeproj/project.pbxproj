@@ -156,6 +156,8 @@
 		20D509191A9A668300AF053E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Six Five Software, LLC";
 				TargetAttributes = {
@@ -409,6 +411,7 @@
 				20D509421A9A668400AF053E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20D509431A9A668400AF053E /* Build configuration list for PBXNativeTarget "Lesson6_2Tests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				20D509451A9A668400AF053E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
