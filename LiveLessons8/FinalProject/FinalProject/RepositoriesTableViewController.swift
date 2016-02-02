@@ -20,7 +20,7 @@ class RepositoriesTableViewController: CoreDataFRCTableViewController {
             
             if let moc = managedObjectContext {
                 fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-                println("number: \(fetchedResultsController?.fetchedObjects?.count ?? 0)")
+                print("number: \(fetchedResultsController?.fetchedObjects?.count ?? 0)")
             }
         }
     }
@@ -45,15 +45,19 @@ class RepositoriesTableViewController: CoreDataFRCTableViewController {
             if let httpResponse = response as? NSHTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200..<300:
-                    println("good status: \(httpResponse.statusCode)")
+                    print("good status: \(httpResponse.statusCode)")
                     if let unwrappedData = data {
                         self.handleHTTPResult(.Value(Box(unwrappedData)))
                     } else {
+											if let error = error {
                         self.handleHTTPResult(.Error(error))
+											}
                     }
                 default:
-                    println("error occurred: \(httpResponse.statusCode)")
-                    self.handleHTTPResult(.Error(error))
+                    print("error occurred: \(httpResponse.statusCode)")
+										if let error = error {
+											self.handleHTTPResult(.Error(error))
+										}
                 }
             }
         }
@@ -63,16 +67,16 @@ class RepositoriesTableViewController: CoreDataFRCTableViewController {
     private func handleHTTPResult(result: Result<NSData>) {
         switch result {
         case .Error(let error):
-            println("An error occurred. Status code: \(error.code)")
+            print("An error occurred. Status code: \(error.code)")
         case .Value(let dataBox):
             let data = dataBox.value
             parseRepositories(data: data)
         }
     }
 
-    private func parseRepositories(#data: NSData) {
+    private func parseRepositories(data data: NSData) {
         
-        if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: .allZeros, error: nil),
+        if let json: AnyObject = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
             jsonDictArray = json as? [[String: AnyObject]] {
                 for jsonDict in jsonDictArray {
                     if let repoID = jsonDict["id"] >>- JSONInt,
@@ -87,14 +91,18 @@ class RepositoriesTableViewController: CoreDataFRCTableViewController {
                             Repository.createRepository(repoID, name: name, repoDescription: description, owner: ownerName, avatarURL: avatarUrl, ownerURL: ownerUrl, repoURL: repoUrl, inManagedObjectContext: moc)
                     }
                 }
-                managedObjectContext?.save(nil)
+                do {
+                    try managedObjectContext?.save()
+                } catch {
+									print("Error saving context. \(error)")
+                }
         }
         
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("RepositoryCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("RepositoryCell", forIndexPath: indexPath) 
         
         if let repository = fetchedResultsController?.objectAtIndexPath(indexPath) as? Repository {
             cell.textLabel?.text = repository.name

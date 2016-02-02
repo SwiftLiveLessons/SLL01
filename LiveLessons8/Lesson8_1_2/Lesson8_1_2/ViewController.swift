@@ -19,54 +19,55 @@ class ViewController: UIViewController {
     }
 
     @IBAction func synchronousOperation(sender: UIButton) {
-        println("synchronous tasks")
+        print("synchronous tasks")
         for _ in 1...10 {
-            print("a")
+					// Swift 2 now has only one print statement, vs `print` and `println`. The `terminator` parameter with an empty string will continue printing on the same line without a carriage return.
+            print("a", terminator: "")
         }
         for _ in 1...10 {
-            print("b")
+            print("b", terminator: "")
         }
-        println()
+        print("")
     }
     
     @IBAction func synchronousTasksInsideAsyncOp(sender: UIButton) {
-        println("synchronous tasks inside async operation")
+        print("synchronous tasks inside async operation")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             for _ in 1...10 {
-                print("a")
+                print("a", terminator: "")
             }
             for _ in 1...10 {
-                print("b")
+                print("b", terminator: "")
             }
-            println()
+            print("")
         }
         // prints abababababababababab
     }
 
     @IBAction func asynchronousOperation(sender: UIButton) {
-        println("async operations")
+        print("async operations")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             for _ in 1...10 {
-                print("a")
+                print("a", terminator: "")
             }
         }
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             for _ in 1...10 {
-                print("b")
+                print("b", terminator: "")
             }
-            println()
+            print("")
         }
     }
     
     @IBAction func asyncWithNestedOp(sender: UIButton) {
-        println("nested dispatches")
+        print("nested dispatches")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             for _ in 1...10 {
-                print("a")
+                print("a", terminator: "")
             }
             dispatch_async(dispatch_get_main_queue()) {
                 for _ in 1...10 {
-                    print("b")
+                    print("b", terminator: "")
                 }
             }
         }
