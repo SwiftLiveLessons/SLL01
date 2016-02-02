@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Veggie: NSObject, Printable {
+class Veggie: NSObject {
     let name: String
     let color: String
     let calories: Int
