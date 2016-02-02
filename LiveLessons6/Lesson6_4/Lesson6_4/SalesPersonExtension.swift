@@ -19,10 +19,17 @@ extension SalesPerson {
         request.predicate = NSPredicate(format: "name = %@", name)
         
         var error: NSError?
-        let possibleMatches = moc.executeFetchRequest(request, error: &error)
+        let possibleMatches: [AnyObject]?
+        do {
+            possibleMatches = try moc.executeFetchRequest(request)
+        } catch let error1 as NSError {
+            error = error1
+            print(error!)
+            possibleMatches = nil
+        }
         
         if possibleMatches == nil {
-            println("error fetching SalesPersons")
+            print("error fetching SalesPersons")
         } else if let found = possibleMatches where found.count == 1 {
             salesPerson = found.first! as! SalesPerson
         } else {

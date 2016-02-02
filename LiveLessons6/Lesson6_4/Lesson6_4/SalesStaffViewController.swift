@@ -24,7 +24,7 @@ class SalesStaffViewController: UIViewController, UITableViewDataSource {
     
     // MARK: table view data source methods
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SalesPersonCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("SalesPersonCell", forIndexPath: indexPath) 
         
         let salesPerson = salesStaff?[indexPath.row]
         cell.textLabel?.text = salesPerson?.name ?? ""

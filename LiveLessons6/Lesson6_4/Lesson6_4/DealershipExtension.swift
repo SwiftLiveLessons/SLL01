@@ -21,17 +21,24 @@ extension Dealership {
         request.predicate = NSPredicate(format: "lotID = %d", id)
         
         var error: NSError?
-        let matches = moc.executeFetchRequest(request, error: &error)
+        let matches: [AnyObject]?
+        do {
+            matches = try moc.executeFetchRequest(request)
+        } catch let error1 as NSError {
+            error = error1
+            print(error!)
+            matches = nil
+        }
         
         if matches == nil {
-            println("error fetching for Dealerships")
+            print("error fetching for Dealerships")
         } else if let found = matches where found.count == 1 {
-            println("matches: \(found.count). \(found)")
+            print("matches: \(found.count). \(found)")
             if let dlrshp: AnyObject = found.first {
-                println("dealership found")
+                print("dealership found")
                 dealership = dlrshp as! Dealership
             } else {
-                println("dealership could not be converted to Dealership object")
+                print("dealership could not be converted to Dealership object")
             }
         } else {
             dealership = NSEntityDescription.insertNewObjectForEntityForName("Dealership", inManagedObjectContext: moc) as! Dealership
