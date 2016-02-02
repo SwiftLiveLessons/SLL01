@@ -3,46 +3,47 @@
 import UIKit
 
 func funcTakesString(str: String) {
-    println(str)
+    print(str)
 }
 
 func funcTakesNSString(str: NSString) {
-    println(str)
+    print(str)
     funcTakesString(str as String)
 }
 
 let nsstr: NSString = "I am an NSString"
 funcTakesNSString(nsstr)
-println()
+print("")
 
 funcTakesString(nsstr as String)
 
 func funcTakesInt(num: Int) {
-    println("\(num)")
+    print("\(num)")
 }
 
 let nsnum: NSNumber = NSNumber(integer: 42)
 funcTakesInt(nsnum.integerValue)
 
-println()
+print("")
 
 
 // dictionary
 let nsDict = NSDictionary(objects: [365, 52, "Saturday"], forKeys: ["daysInYear", "weeksInYear", "bestDayOfWeek"])
-println(nsDict)
+print(nsDict)
 
 let swiftDict = nsDict as! [String : AnyObject]
 swiftDict["daysInYear"]
 
 let nsDict2 = swiftDict as NSDictionary
 
-println()
+print("")
 
 // NSArray and Array
 let nsArr = NSArray(objects: 365, 52, "Saturday")
-println(nsArr)
+print(nsArr)
 
-let swiftArray = nsArr as! [AnyObject]
+// Swift 2 now does not require the as! force cast operator
+let swiftArray = nsArr as [AnyObject]
 swiftArray[2]
 
 let nsArr2 = swiftArray as NSArray
@@ -50,7 +51,7 @@ let nsArr2 = swiftArray as NSArray
 
 // NSSet and Set
 let nsSet = NSSet(array: ["Apples", "Oranges", "Pairs", 42])
-println(nsSet)
+print(nsSet)
 
 let swiftSet = nsSet as Set
 swiftSet.first

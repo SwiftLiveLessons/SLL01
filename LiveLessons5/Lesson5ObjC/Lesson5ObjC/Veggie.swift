@@ -8,7 +8,9 @@
 
 import Foundation
 
-class Veggie: NSObject, Printable {
+// Swift 2 update: This class previously conformed to the `Printable` protocol to provide the `description` property, which is now `CustomStringConvertible`.
+//  This is now obtained automatically by virtue of subclassing NSObject, so the protocol conformance was redundant.
+class Veggie: NSObject {
     let name: String
     let color: String
     let calories: Int
