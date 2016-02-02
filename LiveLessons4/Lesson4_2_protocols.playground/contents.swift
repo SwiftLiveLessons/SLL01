@@ -26,7 +26,7 @@ class MyHelper: DataSourceProtocol, DelegateProtocol {
     // delegate method
     func didSelectItemAtIndex(index: Int) {
         let item: AnyObject = items[index]
-        println("You selected \(item)")
+        print("You selected \(item)")
     }
 }
 
@@ -41,7 +41,7 @@ class Controller {
         let count = helper?.items.count ?? 0
         for i in 0..<count {
             let item: AnyObject = helper?.itemAtIndex(i) ?? ""
-            println("item \(i) is \(item)")
+            print("item \(i) is \(item)")
         }
     }
 }

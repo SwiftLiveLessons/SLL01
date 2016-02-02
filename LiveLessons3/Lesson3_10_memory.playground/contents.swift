@@ -15,14 +15,14 @@ class MathFunction {
     init(firstNum: Int, secondNum: Int) {
         self.firstNum = firstNum
         self.secondNum = secondNum
-        println("initializing.")
+        print("initializing.")
     }
     
     deinit {
-        println("deinitializing.")
+        print("deinitializing.")
     }
 }
 
 var math: MathFunction? = MathFunction(firstNum: 3, secondNum: 5)
-println(math!.multiply())
+print(math!.multiply())
 math = nil

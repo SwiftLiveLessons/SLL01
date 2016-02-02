@@ -10,8 +10,8 @@ extension Int {
     }
 }
 let five = 5
-five.doIt() { println("I am here!") }
-3.doIt() { println("I am printing again") }
+five.doIt() { print("I am here!") }
+3.doIt() { print("I am printing again") }
 
 
 struct URL {
@@ -34,7 +34,7 @@ extension UIColor {
     }
     class func colorWithRGBHex(hex: Int, alpha: Float = 1.0) -> UIColor {
         let r = Float((hex >> 16) & 0xFF) / 255.0 // right-shift by 16 bits
-        let g = Float((hex >> 8) & 0xFF) / 255.0 // right-shift by 8 bits
+        let g = Float((hex >>  8) & 0xFF) / 255.0 // right-shift by 8 bits
         let b = Float((hex) & 0xFF) / 255.0
         
         return UIColor(red: CGFloat(r), green: CGFloat(g), blue:CGFloat(b), alpha: CGFloat(alpha))
@@ -43,7 +43,7 @@ extension UIColor {
 UIColor.myFavoriteBlueColor()
 UIColor.colorWithRGBHex(0xff4444)
 
-extension URL: Printable {
+extension URL: CustomStringConvertible {
     var description: String {
         return "The URL is \(urlString)"
     }
