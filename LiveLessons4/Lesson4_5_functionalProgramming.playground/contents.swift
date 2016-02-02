@@ -5,7 +5,7 @@ import UIKit
 // map
 extension String {
     var asArray: [Character] {
-        return map(self) { $0 }
+        return self.characters.map { $0 }
     }
 }
 "Fido".asArray
@@ -40,14 +40,14 @@ func fmap<T, U>(f: T -> U, value: T?) -> U? {
     case .None: return .None
     }
 }
-let superCount = fmap({ count($0) }, "Supercalifragilisticexpialidocious")
+let superCount = fmap({ $0.characters.count }, value: "Supercalifragilisticexpialidocious")
 superCount
 
 infix operator <^> { associativity left }
 func <^><T, U>(f: T -> U, value: T?) -> U? {
     return value.map(f)
 }
-let superCount2 = { count($0) } <^> "Supercalifragilisticexpialidocious"
+let superCount2 = { $0.characters.count } <^> "Supercalifragilisticexpialidocious"
 superCount2
 
 // apply
@@ -60,12 +60,12 @@ func apply<T, U>(f: (T -> U)?, value: T?) -> U? {
 func anotherAdd(n1: Int) -> (Int -> Int) {
     return { n2 in  n1 + n2 }
 }
-let applySum = apply(fmap(anotherAdd, 5), 7)
+let applySum = apply(fmap(anotherAdd, value: 5), value: 7)
 applySum
 
 infix operator <*> { associativity left }
 func <*><T, U>(f: (T -> U)?, value: T?) -> U? {
-    return apply(f, value)
+    return apply(f, value: value)
 }
 let fsum = anotherAdd <^> 5 <*> 7
 fsum
@@ -79,7 +79,7 @@ func bind<T, U>(value: T?, f: T -> U?) -> U? {
 }
 infix operator >>- { associativity left precedence 150 }
 func >>-<T, U>(value: T?, f: T -> U?) -> U? {
-    return bind(value, f)
+    return bind(value, f: f)
 }
 
 func JSONString(object: AnyObject) -> String? {
@@ -118,8 +118,8 @@ let jsonString = "{\"name\":\"BJ\",\"heightInInches\":77,\"favoriteSong\":\"Anna
 let jsonData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)
 
 if let unwrappedJsonData = jsonData {
-    let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(unwrappedJsonData, options: .allZeros, error: nil)
-    
+    let json: AnyObject? = try NSJSONSerialization.JSONObjectWithData(unwrappedJsonData, options: .MutableContainers)
+
     let name = json?["name"] >>- JSONString
     let heightInInches = json?["heightInInches"] >>- JSONInt
     let favoriteSong = json?["favoriteSong"] >>- JSONString
