@@ -14,45 +14,45 @@ class ViewController: UIViewController {
     
 
     @IBAction func synchronousOperation(sender: UIButton) {
-        println("synchronous tasks")
+        print("synchronous tasks")
         for _ in 1...10 {
-            print("a")
+            print("a", terminator: "")
         }
         for _ in 1...10 {
-            print("b")
+            print("b", terminator: "")
         }
-        println()
+        print("")
     }
     
     @IBAction func synchronousTasksInsideAsyncOp(sender: UIButton) {
-        println("synchronous tasks inside async operation")
+        print("synchronous tasks inside async operation")
         
         let operation = NSBlockOperation() {
             for _ in 1...10 {
-                print("a")
+                print("a", terminator: "")
             }
             for _ in 1...10 {
-                print("b")
+                print("b", terminator: "")
             }
-            println()
+            print("")
         }
         operationQueue.addOperation(operation)
         
     }
     
     @IBAction func asynchronousOperation(sender: UIButton) {
-        println("async operations")
+        print("async operations")
         
         let op1 = NSBlockOperation() {
             for _ in 1...10 {
-                print("a")
+                print("a", terminator: "")
             }
         }
         let op2 = NSBlockOperation() {
             for _ in 1...10 {
-                print("b")
+                print("b", terminator: "")
             }
-            println()
+            print("")
         }
         operationQueue.addOperation(op1)
         operationQueue.addOperation(op2)
@@ -60,18 +60,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func asyncWithNestedOp(sender: UIButton) {
-        println("nested dispatches")
+        print("nested dispatches")
         
         let op1 = NSBlockOperation() {
             for _ in 1...10 {
-                print("a")
+                print("a", terminator: "")
             }
         }
         let op2 = NSBlockOperation() {
             for _ in 1...10 {
-                print("b")
+                print("b", terminator: "")
             }
-            println()
+            print("")
         }
         op2.addDependency(op1)
         

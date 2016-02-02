@@ -18,14 +18,12 @@ extension SalesPerson {
         let request = NSFetchRequest(entityName: "SalesPerson")
         request.predicate = NSPredicate(format: "name = %@", name)
         
-        var error: NSError?
         let possibleMatches: [AnyObject]?
         do {
             possibleMatches = try moc.executeFetchRequest(request)
-        } catch let error1 as NSError {
-            error = error1
-            print(error!)
+        } catch {
             possibleMatches = nil
+					print("error executing fetch request: \(error)")
         }
         
         if possibleMatches == nil {

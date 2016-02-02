@@ -21,12 +21,9 @@ class ViewController: UIViewController {
         print("init(nibName:bundle:)")
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
-    init() {
-        print("init()")
-        super.init(nibName: nil, bundle: nil)
-    }
-    
+	
+	// Update for Swift 2: `init()` is no longer a designated initializer in UIViewController. Removed initializer as it isn't even called when being view controller is initialized from a storyboard.
+	
     override func viewDidLoad() {
         print("viewDidLoad()")
         super.viewDidLoad()

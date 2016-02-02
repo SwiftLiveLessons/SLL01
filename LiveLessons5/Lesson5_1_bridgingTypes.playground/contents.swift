@@ -42,6 +42,7 @@ print("")
 let nsArr = NSArray(objects: 365, 52, "Saturday")
 print(nsArr)
 
+// Swift 2 now does not require the as! force cast operator
 let swiftArray = nsArr as [AnyObject]
 swiftArray[2]
 

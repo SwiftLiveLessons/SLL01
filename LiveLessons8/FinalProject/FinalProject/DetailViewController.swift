@@ -24,17 +24,14 @@ class DetailViewController: UIViewController {
         repositoryName.text = repository?.name ?? ""
         repositoryDescription.text = repository?.repoDescription ?? ""
         
-        if let avatarURLString = repository?.avatarURL {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                if let avatarURL = NSURL(string: avatarURLString), imageData = NSData(contentsOfURL: avatarURL) {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.ownerImageView.image = UIImage(data: imageData)
-                    }
-                }
-            }
-        }
-
+			guard let avatarURLString = repository?.avatarURL else { return }
+			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+				if let avatarURL = NSURL(string: avatarURLString), imageData = NSData(contentsOfURL: avatarURL) {
+					dispatch_async(dispatch_get_main_queue()) {
+						self.ownerImageView.image = UIImage(data: imageData)
+					}
+				}
+			}
     }
-
 
 }

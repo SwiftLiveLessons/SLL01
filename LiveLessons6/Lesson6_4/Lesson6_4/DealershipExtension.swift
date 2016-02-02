@@ -20,14 +20,12 @@ extension Dealership {
         let request = NSFetchRequest(entityName: "Dealership")
         request.predicate = NSPredicate(format: "lotID = %d", id)
         
-        var error: NSError?
         let matches: [AnyObject]?
         do {
             matches = try moc.executeFetchRequest(request)
-        } catch let error1 as NSError {
-            error = error1
-            print(error!)
+        } catch {
             matches = nil
+					print("error executing fetch request: \(error)")
         }
         
         if matches == nil {

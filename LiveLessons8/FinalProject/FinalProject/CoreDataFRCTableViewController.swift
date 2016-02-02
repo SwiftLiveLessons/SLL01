@@ -26,7 +26,7 @@ class CoreDataFRCTableViewController: UITableViewController, NSFetchedResultsCon
                 _frc?.delegate = self
                 self.title = _frc?.fetchRequest.entity?.name ?? ""
             }
-            if let newFRC = newValue {
+            if newValue != nil {
                 performFetch()
             } else {
                 tableView.reloadData()
@@ -39,24 +39,22 @@ class CoreDataFRCTableViewController: UITableViewController, NSFetchedResultsCon
         if let frc = fetchedResultsController {
             if frc.fetchRequest.predicate != nil {
                 if debug {
-                    println("[\(NSStringFromClass(self.classForCoder))] fetching \(frc.fetchRequest.entityName ?? String()) with predicate \(frc.fetchRequest.predicate?.description ?? String())]")
+                    print("[\(NSStringFromClass(self.classForCoder))] fetching \(frc.fetchRequest.entityName ?? String()) with predicate \(frc.fetchRequest.predicate?.description ?? String())]")
                 }
             } else {
                 if debug {
-                    println("[\(NSStringFromClass(self.classForCoder))] fetching all \(frc.fetchRequest.entityName ?? String())")
+                    print("[\(NSStringFromClass(self.classForCoder))] fetching all \(frc.fetchRequest.entityName ?? String())")
                 }
             }
-            var error: NSError?
-            let success = frc.performFetch(&error)
-            if !success {
-                println("[\(NSStringFromClass(self.classForCoder))] performFetch: failed")
-            }
-            if let err = error {
-                println("[\(NSStringFromClass(self.classForCoder))] error: \(err.localizedDescription) [\(err.localizedFailureReason)]")
+            do {
+                try frc.performFetch()
+            } catch let error as NSError {
+                print("[\(NSStringFromClass(self.classForCoder))] performFetch: failed")
+                print("[\(NSStringFromClass(self.classForCoder))] error: \(error.localizedDescription) [\(error.localizedFailureReason)]")
             }
         } else {
             if debug {
-                println("[\(NSStringFromClass(self.classForCoder))] no FRC")
+                print("[\(NSStringFromClass(self.classForCoder))] no FRC")
             }
         }
         tableView.reloadData()
@@ -86,8 +84,8 @@ class CoreDataFRCTableViewController: UITableViewController, NSFetchedResultsCon
     override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
         return fetchedResultsController?.sectionForSectionIndexTitle(title, atIndex: index) ?? 0
     }
-    
-    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+	
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
         return fetchedResultsController?.sectionIndexTitles
     }
     

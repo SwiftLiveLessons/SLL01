@@ -37,8 +37,9 @@ class MasterViewController: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
-            let controllers = split.viewControllers as! [UINavigationController]
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            let controllers = split.viewControllers
+					// Update for Swift 2: need to cast the last controller a UINavigationController to access its `topViewController` property.
+					self.detailViewController = (controllers.last as? UINavigationController)?.topViewController as? DetailViewController
         }
     }
 

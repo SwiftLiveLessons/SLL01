@@ -15,7 +15,8 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
         didSet {
             do {
                 try self.fetchedResultsController.performFetch()
-            } catch _ {
+            } catch {
+							print("error performing fetch: \(error)")
             }
             self.tableView?.reloadData()
         }
@@ -29,7 +30,7 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        let moc = self.managedObjectContext ?? NSManagedObjectContext.init(concurrencyType:.MainQueueConcurrencyType)
+        let moc = self.managedObjectContext ?? NSManagedObjectContext()
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         
         frc.delegate = self
@@ -43,7 +44,7 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        createSomeEntities()
+        createSomeEntities()
     }
     
     func createSomeEntities() {
@@ -52,10 +53,8 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
             let dealership2 = Dealership.createDealership(lotID: 2, title: "Fisher", brand: "BMW", numberOfCars: 50, inContext: moc)
             
             let person1 = SalesPerson.salesPerson(100, name: "Mrs. White", inContext: moc)
-            print(person1)
             let person2 = SalesPerson.salesPerson(101, name: "Col. Mustard", inContext: moc)
             let person3 = SalesPerson.salesPerson(102, name: "Miss Scarlet", dealershipLotID: 3, dealershipTitle: "King James", brand: "Mercedes", numberOfCars: 200, inContext: moc)
-            print(person3)
             let person4 = SalesPerson.salesPerson(103, name: "Prof. Plum", inContext: moc)
 
             person1.employer = dealership1
@@ -64,7 +63,8 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
             
             do {
                 try moc.save()
-            } catch _ {
+            } catch {
+							print("error saving context: \(error)")
             }
         }
     }
@@ -101,8 +101,8 @@ class DealershipsViewController: UIViewController, UITableViewDataSource, NSFetc
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         tableView.beginUpdates()
     }
-
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+	
+	func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath ?? NSIndexPath()], withRowAnimation: .Automatic)

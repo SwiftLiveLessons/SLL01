@@ -30,7 +30,8 @@ class ViewController: UIViewController {
     
     @IBAction func increaseCookieCount(sender: UIButton) {
         if countableCookies.isEmpty {
-            ++cookieCount
+					  // ++ and -- prefix and postfix operators will be removed in Swift 3, so changing `++cookieCount` to `cookieCount += 1`
+            cookieCount += 1
         } else {
             cookieCount = countableCookies.reduce(cookieCount) { $0 + $1.cookieIntegerValue() }
         }
@@ -51,11 +52,13 @@ class ViewController: UIViewController {
     
     private func resetMultipliersIfNeeded() {
         if tapCount == 10 {
-            countableCookies.map { $0.multiplier = nil }
-            countableCookies.map { print("multiplier: \($0.multiplier)") }
+					  // The video content used the `map` function in the next two lines, but since these functions aren't returning new arrays, using `forEach` is more appropriate.
+            countableCookies.forEach { $0.multiplier = nil }
+            countableCookies.forEach { print("multiplier: \($0.multiplier)") }
             tapCount = 0
         } else {
-            ++tapCount
+					  // ++ and -- prefix and postfix operators will be removed in Swift 3, so changing `++tapCount` to `tapCount += 1`
+            tapCount += 1
         }
     }
 

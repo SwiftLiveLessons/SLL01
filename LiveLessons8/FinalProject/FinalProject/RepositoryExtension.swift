@@ -18,11 +18,15 @@ extension Repository {
         let fetchRequest = NSFetchRequest(entityName: "Repository")
         fetchRequest.predicate = NSPredicate(format: "repoID = %d", repoID)
         
-        var error: NSError?
-        let matches = moc.executeFetchRequest(fetchRequest, error: &error)
+        let matches: [AnyObject]?
+        do {
+            matches = try moc.executeFetchRequest(fetchRequest)
+        } catch {
+            matches = nil
+        }
         
         if matches == nil {
-            println("There was an error fetching results")
+            print("There was an error fetching results")
         } else if let found = matches where found.count == 1 {
             repository = found.first as? Repository
         } else {
