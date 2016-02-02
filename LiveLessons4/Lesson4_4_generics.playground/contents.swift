@@ -28,7 +28,7 @@ isEqual("Hi", value2: "Hello")
 
 
 // generic functions
-func fmap<T, U>(value: T?, f: T -> U) -> U? { // fmap<T: CollectionType, ...
+func fmap<T, U>(value: T?, f: T -> U) -> U? {
     switch value {
     case .Some(let x): return f(x)
     case .None: return .None
@@ -36,8 +36,8 @@ func fmap<T, U>(value: T?, f: T -> U) -> U? { // fmap<T: CollectionType, ...
 }
 var greeting: String? = "Bonjour!"
 
-//let charCount = fmap(greeting) { count($0) } // Xcode bug...
-//charCount
+let charCount = fmap(greeting) { $0.characters.count } 
+charCount
 
 
 // associated types
