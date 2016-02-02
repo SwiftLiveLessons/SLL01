@@ -12,62 +12,62 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var button: UIButton!
     
-    required init(coder aDecoder: NSCoder) {
-        println("init(coder:). button is \(button)")
+    required init?(coder aDecoder: NSCoder) {
+        print("init(coder:). button is \(button)")
         super.init(coder: aDecoder)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        println("init(nibName:bundle:)")
+        print("init(nibName:bundle:)")
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    override init() {
-        println("init()")
-        super.init()
+    init() {
+        print("init()")
+        super.init(nibName: nil, bundle: nil)
     }
     
     override func viewDidLoad() {
-        println("viewDidLoad()")
+        print("viewDidLoad()")
         super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool) {
-        println("viewWillAppear(animated:). button is \(button)")
+        print("viewWillAppear(animated:). button is \(button)")
         super.viewWillAppear(animated)
     }
     
     override func viewWillLayoutSubviews() {
-        println("viewWillLayoutSubviews()")
+        print("viewWillLayoutSubviews()")
         super.viewWillLayoutSubviews()
     }
     
     override func viewDidLayoutSubviews() {
-        println("viewDidLayoutSubviews()")
+        print("viewDidLayoutSubviews()")
         super.viewDidLayoutSubviews()
     }
     
     override func viewDidAppear(animated: Bool) {
-        println("viewDidAppear(animated:)")
+        print("viewDidAppear(animated:)")
         super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        println("viewWillDisappear(animated:)")
+        print("viewWillDisappear(animated:)")
         super.viewWillDisappear(animated)
     }
     
     override func viewDidDisappear(animated: Bool) {
-        println("viewDidDisappear(animated:)")
+        print("viewDidDisappear(animated:)")
         super.viewDidDisappear(animated)
     }
     
     deinit {
-        println("deinitializing")
+        print("deinitializing")
     }
 
     override func didReceiveMemoryWarning() {
-        println("didReceiveMemoryWarning()")
+        print("didReceiveMemoryWarning()")
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
