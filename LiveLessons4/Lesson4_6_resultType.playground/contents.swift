@@ -16,9 +16,9 @@ let failure = Result.Error(NSError(domain: "HTTP Domain", code: 400, userInfo: [
 
 switch failure {
 case .Error(let error):
-    println("error: \(error.localizedDescription), code: \(error.code)")
+    print("error: \(error.localizedDescription), code: \(error.code)")
 case .Value(let response):
-    println("response: \(response)")
+    print("response: \(response)")
 }
 
 
@@ -37,16 +37,16 @@ let intResult = GenericResult.Value(Box(5))
 switch intResult {
 case .Value(let intBox):
     let intValue = intBox.value
-    println("intValue is \(intValue)")
+    print("intValue is \(intValue)")
 case .Error(let error):
-    println("error is \(error.localizedDescription)")
+    print("error is \(error.localizedDescription)")
 }
 
 let stringResult = GenericResult.Value(Box("json result"))
 switch stringResult {
 case .Value(let stringBox):
     let stringValue = stringBox.value
-    println("stringValue is \(stringValue)")
+    print("stringValue is \(stringValue)")
 case .Error(let error):
-    println("error is \(error.localizedDescription)")
+    print("error is \(error.localizedDescription)")
 }
