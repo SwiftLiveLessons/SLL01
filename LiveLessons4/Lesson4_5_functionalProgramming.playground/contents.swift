@@ -20,6 +20,19 @@ roundedUpSavings
 let doubleDigits = transactions.filter { $0 >= 10.0 }
 doubleDigits
 
+// currying
+func regularAdd(n1: Int, n2: Int, n3: Int) -> Int {
+    return n1 + n2 + n3
+}
+
+func curriedAdd(n1: Int)(n2: Int)(n3: Int) -> Int {
+    return n1 + n2 + n3
+}
+let firstCurry = curriedAdd(1)
+let secondCurry = firstCurry(n2: 2)
+let thirdCurry = secondCurry(n3: 3)
+
+
 // operators
 func fmap<T, U>(f: T -> U, value: T?) -> U? {
     switch value {
